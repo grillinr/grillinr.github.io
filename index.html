@@ -5,9 +5,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
+        <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
         <title>Nathan Grilliot - Portfolio</title>
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="assets/img/avataaars.svg" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
@@ -29,7 +32,6 @@
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">Portfolio</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">About</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Contact</a></li>
                     </ul>
                 </div>
             </div>
@@ -48,7 +50,8 @@
                     <div class="divider-custom-line"></div>
                 </div>
                 <!-- Masthead Subheading-->
-                <p class="masthead-subheading font-weight-light mb-0">Computer Science Student</p>
+                <p class="masthead-subheading font-weight-light mb-0">University of Cincinnati Computer Science Student Graduating in 2026</p>
+                <p class="masthead-subheading font-weight-light mb-0" id="email" onclick="showHideEmail()">Show my email</p>
             </div>
         </header>
         <!-- Portfolio Section-->
@@ -70,7 +73,7 @@
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="assets/img/portfolio/cabin.png" alt="..." />
+                            <img class="img-fluid" src="assets/img/portfolio/api.jpg" alt="..." />
                         </div>
                     </div>
                     <!-- Portfolio Item 2-->
@@ -79,7 +82,7 @@
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="assets/img/portfolio/cake.png" alt="..." />
+                            <img class="img-fluid" src="assets/img/portfolio/resume.jpg" alt="..." />
                         </div>
                     </div>
                     <!-- Portfolio Item 3-->
@@ -88,34 +91,7 @@
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="assets/img/portfolio/circus.png" alt="..." />
-                        </div>
-                    </div>
-                    <!-- Portfolio Item 4-->
-                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal4">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="assets/img/portfolio/game.png" alt="..." />
-                        </div>
-                    </div>
-                    <!-- Portfolio Item 5-->
-                    <div class="col-md-6 col-lg-4 mb-5 mb-md-0">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal5">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="assets/img/portfolio/safe.png" alt="..." />
-                        </div>
-                    </div>
-                    <!-- Portfolio Item 6-->
-                    <div class="col-md-6 col-lg-4">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal6">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="assets/img/portfolio/submarine.png" alt="..." />
+                            <img class="img-fluid" src="assets/img/portfolio/links.jpg" alt="..." />
                         </div>
                     </div>
                 </div>
@@ -134,86 +110,20 @@
                 </div>
                 <!-- About Section Content-->
                 <div class="row">
-                    <div class="col-lg-4 ms-auto"><p class="lead">Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional SASS stylesheets for easy customization.</p></div>
-                    <div class="col-lg-4 me-auto"><p class="lead">You can create your own custom avatar for the masthead, change the icon in the dividers, and add your email address to the contact form to make it fully functional!</p></div>
+                    <div class="col-lg-4 ms-auto">
+                        <p class="lead">In this project, I expanded my front-end web development skills by developing a Professional Profile Website and deploying it on github.io cloud service.</p>
+                    </div>
+                    <div class="col-lg-4 me-auto">
+                        <p class="lead">I used several APIs, cookies, HTML, CSS, and JavaScript to design an interactive and informative webpage. This displays my technical expertise in web development. The source code can be found on
+                            <a href="https://github.com/grillinr/grillinr.github.io">GitHub</a></p>
+                    </div>
                 </div>
                 <!-- About Section Button-->
                 <div class="text-center mt-4">
-                    <a class="btn btn-xl btn-outline-light" href="https://startbootstrap.com/theme/freelancer/">
+                    <a class="btn btn-xl btn-outline-light" href="https://mailuc-my.sharepoint.com/:w:/g/personal/grillinr_mail_uc_edu/Ef_ZOK0aDQZOmtZjzF9xER8BfRULXbFAPKcpbyWsrkjakg?e=uVnfee">
                         <i class="fas fa-download me-2"></i>
-                        Free Download!
+                        View Resume
                     </a>
-                </div>
-            </div>
-        </section>
-        <!-- Contact Section-->
-        <section class="page-section" id="contact">
-            <div class="container">
-                <!-- Contact Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Contact Me</h2>
-                <!-- Icon Divider-->
-                <div class="divider-custom">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                    <div class="divider-custom-line"></div>
-                </div>
-                <!-- Contact Section Form-->
-                <div class="row justify-content-center">
-                    <div class="col-lg-8 col-xl-7">
-                        <!-- * * * * * * * * * * * * * * *-->
-                        <!-- * * SB Forms Contact Form * *-->
-                        <!-- * * * * * * * * * * * * * * *-->
-                        <!-- This form is pre-integrated with SB Forms.-->
-                        <!-- To make this form functional, sign up at-->
-                        <!-- https://startbootstrap.com/solution/contact-forms-->
-                        <!-- to get an API token!-->
-                        <form id="contactForm" data-sb-form-api-token="API_TOKEN">
-                            <!-- Name input-->
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
-                                <label for="name">Full name</label>
-                                <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
-                            </div>
-                            <!-- Email address input-->
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
-                                <label for="email">Email address</label>
-                                <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
-                                <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
-                            </div>
-                            <!-- Phone number input-->
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
-                                <label for="phone">Phone number</label>
-                                <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
-                            </div>
-                            <!-- Message input-->
-                            <div class="form-floating mb-3">
-                                <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
-                                <label for="message">Message</label>
-                                <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
-                            </div>
-                            <!-- Submit success message-->
-                            <!---->
-                            <!-- This is what your users will see when the form-->
-                            <!-- has successfully submitted-->
-                            <div class="d-none" id="submitSuccessMessage">
-                                <div class="text-center mb-3">
-                                    <div class="fw-bolder">Form submission successful!</div>
-                                    To activate this form, sign up at
-                                    <br />
-                                    <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                                </div>
-                            </div>
-                            <!-- Submit error message-->
-                            <!---->
-                            <!-- This is what your users will see when there is-->
-                            <!-- an error submitting the form-->
-                            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
-                            <!-- Submit Button-->
-                            <button class="btn btn-primary btn-xl disabled" id="submitButton" type="submit">Send</button>
-                        </form>
-                    </div>
                 </div>
             </div>
         </section>
@@ -225,23 +135,18 @@
                     <div class="col-lg-4 mb-5 mb-lg-0">
                         <h4 class="text-uppercase mb-4">Location</h4>
                         <p class="lead mb-0">
-                            2215 John Daniel Drive
-                            <br />
-                            Clark, MO 65243
+                            Cincinnati, OH, 45219
                         </p>
                     </div>
-                    <!-- Footer Social Icons-->
                     <!-- Page tracker -->
                     <div class="col-sm-3">
-                        <a href="https://info.flagcounter.com/IKVB"><img src="https://s11.flagcounter.com/count2/IKVB/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_249/viewers_0/labels_1/pageviews_1/flags_0/percent_0/" alt="Flag Counter" border="0"></a>
+                        <a href="https://info.flagcounter.com/4mgY"><img src="https://s01.flagcounter.com/count2/4mgY/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_0/labels_0/pageviews_0/flags_0/percent_0/" alt="Free counters!"></a>
                     </div>
                     <!-- Footer About Text-->
                     <div class="col-lg-4">
-                        <h4 class="text-uppercase mb-4">About Freelancer</h4>
+                        <h4 class="text-uppercase mb-4">About This Site</h4>
                         <p class="lead mb-0">
-                            Freelance is a free to use, MIT licensed Bootstrap theme created by
-                            <a href="http://startbootstrap.com">Start Bootstrap</a>
-                            .
+                            Designed for the Web Application Programming and Hacking course at the University of Cincinnati. Information on this course is found <a href="waph_intro.html">here.</a>
                         </p>
                     </div>
                 </div>
@@ -249,7 +154,7 @@
         </footer>
         <!-- Copyright Section-->
         <div class="copyright py-4 text-center text-white">
-            <div class="container"><small>Copyright &copy; Your Website 2023</small></div>
+            <div class="container"><small>Copyright &copy; Nathan Grilliot 2024</small></div>
         </div>
         <!-- Portfolio Modals-->
         <!-- Portfolio Modal 1-->
@@ -262,7 +167,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
                                     <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Log Cabin</h2>
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Integrations</h2>
                                     <!-- Icon Divider-->
                                     <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
@@ -270,9 +175,68 @@
                                         <div class="divider-custom-line"></div>
                                     </div>
                                     <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/cabin.png" alt="..." />
+                                    <p class="mb-1"><b>Time Display with JavaScript</b></p>
+                                    <canvas id="analog-clock" width="150" height="150" style="background-color:#999"></canvas>
+                                    <script src="https://waph-uc.github.io/clock.js"></script>
+                                    <script>
+                                        var canvas = document.getElementById('analog-clock');
+                                        var ctx = canvas.getContext('2d');
+                                        var radius = canvas.height / 2;
+                                        ctx.translate(radius, radius);
+                                        radius = radius * 0.90;
+                                        setInterval(drawClock, 1000);
+                                        function drawClock() {
+                                            drawFace(ctx, radius);
+                                            drawNumbers(ctx, radius);
+                                            drawTime(ctx, radius);
+                                        }
+                                    </script>
                                     <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                                    <div id="digit-clock"></div>
+                                    <script>
+                                        function displayTime(){
+                                            document.getElementById('digit-clock').innerHTML = "Current Time:" + new Date();
+                                        }
+                                        setInterval(displayTime, 500);
+                                    </script>
+                                    <p class="mb-1"><b>Joke Display with JokeAPI.com. Content is provided by a third party.</b></p>
+                                    <p class="mb-1">Random Joke: </p>
+                                    <p class="mb-4" id="joke"></p>
+                                    <p class="mb-1"><b>Weather Display with WeatherBit.io</b></p>
+                                    <p class="mb-4" id="weather"></p>
+                                    <div id="weather-icon"></div>
+                                    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                                    <script>
+                                        $.get("https://api.weatherbit.io/v2.0/current?lat=39.132802&lon=-84.516619&key=2ded450a13e04e97a2c6c07558bc915c&units=I", 
+                                        function(result) {
+                                            $("#weather").text("Current Temperature: " + result.data[0].temp + "° F, Weather Conditions: " + result.data[0].weather.description);
+                                            $("#weather-icon").html("<img src='https://cdn.weatherbit.io/static/img/icons/" + result.data[0].weather.icon + ".png'>");
+                                        });
+                                    </script>
+                                    <div id="button"></div>
+
+                                    <script type="text/babel">
+                                    function GifComponent() {
+                                        const [showGif, setShowGif] = React.useState(false);
+                                    
+                                        return (
+                                            <div>
+                                                <p id="giff"><b>GIF Integration with React</b></p>
+                                                <button class="btn btn-primary" onClick={() => setShowGif(!showGif)}>
+                                                    {showGif ? "Hide GIF" : "Show GIF"}
+                                                </button>
+                                                <br />
+                                                <br />
+                                                {showGif && (
+                                                    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZTdnc3Blc3doZ3I4ZzNoYjByYWF4a3p4bm42OTY0d2IyNzF3b243NiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/QpVUMRUJGokfqXyfa1/giphy.gif" alt="GIF" />
+                                                )}
+                                            </div>
+                                        );
+                                    }
+                                    
+                                    ReactDOM.render(<GifComponent />, document.getElementById("button"));
+                                    </script>
+                                    <br />
                                     <button class="btn btn-primary" data-bs-dismiss="modal">
                                         <i class="fas fa-xmark fa-fw"></i>
                                         Close Window
@@ -292,9 +256,9 @@
                     <div class="modal-body text-center pb-5">
                         <div class="container">
                             <div class="row justify-content-center">
-                                <div class="col-lg-8">
+                                <div class="col-lg-10">
                                     <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Tasty Cake</h2>
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Resumé</h2>
                                     <!-- Icon Divider-->
                                     <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
@@ -302,9 +266,35 @@
                                         <div class="divider-custom-line"></div>
                                     </div>
                                     <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/cake.png" alt="..." />
+                                    
                                     <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                                    <p class="mb-2"><b>Education</b></p>
+                                    <p class="mb-1">University of Cincinnati - Graduating: May 2026</p>
+                                    <p class="mb-1">Bachelor of Science, Computer Science - GPA: 3.75/4.0</p>
+
+                                    <p class="mb-2"><b>Skills</b></p>
+                                    <p class="mb-1">Languages: Python, C++, HTML, CSS, JavaScript</p>
+                                    <p class="mb-1">Software/Tools: Git, GitHub, Visual Studio Code, Linux, Windows</p>
+
+                                    <p class="mb-2"><b>Experience</b></p>
+                                    <p class="mb-1">Medpace - Informatics Intern: Starting August 2024</p>
+                                    <p class="mb-1">ElectraMet - Software Developer Intern: May 2023 - April 2024</p>
+                                    <p class="mb-1">Target - Guest Service Advocate: November 2019 - December 2023</p>
+
+                                    <p class="mb-2"><b>Projects</b></p>
+                                    <p class="mb-1">Mangage Me Website - Python, HTML, CSS, JavaScript</p>
+                                    <p class="mb-1">Portfolio Website - HTML, CSS, JavaScript</p>
+                                    <p class="mb-1">PoMotivate - HTML, CSS, JavaScript</p>
+
+                                    <p class="mb-2"><b>Activities</b></p>
+                                    <p class="mb-1">ACM at UC - Member</p>
+                                    <p class="mb-1">IEEE at UC - Member</p>
+
+                                    <p class="mb-2"><b>Awards & Honors</b></p>
+                                    <p class="mb-1">Cincinnatus Scholarship Recipient</p>
+                                    <p class="mb-1">Dean's List</p>
+                                    <p class="mb-1">Eagle Scout</p>
+
                                     <button class="btn btn-primary" data-bs-dismiss="modal">
                                         <i class="fas fa-xmark fa-fw"></i>
                                         Close Window
@@ -326,7 +316,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
                                     <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Circus Tent</h2>
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Contact Links</h2>
                                     <!-- Icon Divider-->
                                     <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
@@ -334,9 +324,11 @@
                                         <div class="divider-custom-line"></div>
                                     </div>
                                     <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/circus.png" alt="..." />
                                     <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                                    <p class="mb-4">LinkedIn: <a href="https://www.linkedin.com/in/nathan-grilliot">Nathan Grilliot</a></p>
+                                    <p class="mb-4">GitHub: <a href="https://www.github.com/grillinr">School</a></p>
+                                    <p class="mb-4">GitHub: <a href="https://www.github.com/nrgrill">Personal</a></p>
+
                                     <button class="btn btn-primary" data-bs-dismiss="modal">
                                         <i class="fas fa-xmark fa-fw"></i>
                                         Close Window
@@ -348,102 +340,7 @@
                 </div>
             </div>
         </div>
-        <!-- Portfolio Modal 4-->
-        <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" aria-labelledby="portfolioModal4" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                    <div class="modal-body text-center pb-5">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Controller</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/game.png" alt="..." />
-                                    <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                                    <button class="btn btn-primary" data-bs-dismiss="modal">
-                                        <i class="fas fa-xmark fa-fw"></i>
-                                        Close Window
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Portfolio Modal 5-->
-        <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" aria-labelledby="portfolioModal5" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                    <div class="modal-body text-center pb-5">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Locked Safe</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/safe.png" alt="..." />
-                                    <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                                    <button class="btn btn-primary" data-bs-dismiss="modal">
-                                        <i class="fas fa-xmark fa-fw"></i>
-                                        Close Window
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Portfolio Modal 6-->
-        <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" aria-labelledby="portfolioModal6" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                    <div class="modal-body text-center pb-5">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Submarine</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/submarine.png" alt="..." />
-                                    <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                                    <button class="btn btn-primary" data-bs-dismiss="modal">
-                                        <i class="fas fa-xmark fa-fw"></i>
-                                        Close Window
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
 
         
 
@@ -475,7 +372,7 @@
             var lastVisit = getCookie("lastVisit");
             if (!lastVisit) {
               setCookie("lastVisit", new Date().toISOString(), 30); // Set cookie to expire in 30 days
-              alert("Welcome to my homepage!");
+              alert("Welcome to Nathan's Portfolio!");
             } else {
               // Returning visit
               var lastVisitDate = new Date(lastVisit);
@@ -486,12 +383,46 @@
           window.onload = displayWelcomeMessage; 
         </script>
 
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const apiKey = 'YOUR_API_KEY';
+    
+                function fetchRandomJoke() {
+                    const apiUrl = 'https://v2.jokeapi.dev/joke/Programming'; // You can customize the API endpoint
+    
+                    fetch(apiUrl)
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.error) {
+                                console.error('Error fetching joke:', data.message);
+                                document.getElementById('joke').innerText = 'Error occurred while fetching a joke.';
+                            } else if (data.flags.nsfw || data.flags.racist || data.flags.sexist || data.flags.explicit){
+                                console.error('Joke not allowed:', data.message);
+                                document.getElementById('joke').innerText = 'Joke not allowed.';
+                            } else {
+                                const joke = data.joke || `${data.setup} ${data.delivery}`;
+                                document.getElementById('joke').innerText = joke;
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error fetching joke:', error);
+                            document.getElementById('joke').innerText = 'Error occurred while fetching a joke.';
+                        });
+                }
+    
+                fetchRandomJoke();
+    
+                setInterval(fetchRandomJoke, 60000);
+            });
+        </script>
+
         </div>
         <div id="button"></div>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
+        <script src="js/custom_scripts.js"></script>
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <!-- * *                               SB Forms JS                               * *-->
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
