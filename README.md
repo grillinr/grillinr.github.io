@@ -1,50 +1,24 @@
-# WAPH-Web Application Programming and Hacking
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Arial&size=30&letterSpacing=tiny&duration=2000&pause=10000&color=FFFFFF&center=false&vCenter=true&width=435&lines=Hi,+I'm+Nathan+Grilliot)](https://git.io/typing-svg)
 
-## Instructor: Dr. Phu Phung
+Computer Science student at the University of Cincinnati with a minor in Software Engineering
 
-## Student
+## 🛠 Skills & Technologies
+- **Languages**: Python, SQL, C++, HTML, CSS, JavaScript, R
+- **Frameworks & Tools**: Flask, AWS, Docker, Power BI, Git, LabVIEW, MATLAB, Quarto
+- **Database Management**: SQL, Flask-SQLAlchemy, SQLite
 
-**Name**: Nathan Grilliot
+## 📂 Projects
+- **DevBits**: Create an X and LinkedIn crossover for posting real content about your projects, semi-formally.
+- **Resume2Web**: Resume2Web is a web application using Flask and React as infrastructure that extracts key information from a resume file (in formats like PDF or text) and automatically generates an interactive, customizable website showcasing the parsed data.
+- **Manage Me**: A task management web app built with Python, HTML, CSS, and JavaScript, designed to boost productivity, created during Revolution UC Hackathon.
+- **Poli-Search**: A collaborative web app for political candidate research, developed at Make UC Hackathon using Python, HTML, and CSS.
 
-**Email**: <grillinr@mail.uc.edu>
+## 💼 Experience
+- **Medpace**: Developed interactive data visualizations and dashboards for clinical trials, collaborating with global teams.
+- **ElectraMet**: Built an internal product configuration tool, deploying updates with Docker and AWS EC2, and analyzing customer data with Pandas and SciKit Learn.
 
-**Short-bio**: I am a 3rd year computer science student and I am looking forward to learning how to make a web application!
+## GitHub Contributions
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=grillinr&langs_count=8&layout=compact&size_weight=0.5&count_weight=0.5&theme=dark&hide_border=true" alt="Top Languages" style="width: 50%; margin-right: 7.5%">
+<img src="https://github-readme-stats.vercel.app/api?username=grillinr&show_icons=true&hide=stars&count_private=true&hide_rank=true&theme=dark&hide_border=true" alt="Nathan's GitHub Stats" style="width: 50%; margin-left: 7.5%;">
 
-![Nathan's headshot](assets/img/headshot.jpg)
-
-## Repository Information
-
-Respository's URL: [https://github.com/grillinr/waph-grillinr.git](https://github.com/grillinr/waph-grillinr.git)
-
-This is a private repository for Nathan to store all code from the course. The organization of this repository is as follows.
-
-## Individual Project 1: Professional Profile Website
-
-## Overview
-
-[Link to site here](https://grillinr.github.io/)
-[Link to repository here](https://github.com/grillinr/grillinr.github.io)
-
-This project is to create a professional portfolio website. It will use various technologies to exhibit the skills we have learned in this class so far. My resume, contact info, and information about this course can be found here (link in about section at the bottom of the site). In addition to this, it incorporates several APIs, various JavaScript snippets, and a simple React integration (under the API section).
-
-### General Requirements
-
-- Deploy site on GitHub cloud. This task helps to show an easy way to create a site using free tools.
-![GitHub Cloud Deployment](report_images/gr1.png)
-- Create a link to new HTML page showing site overview. Doing this teaches how to create links between HTML pages.
-![New HTML Page](report_images/gr2.png)
-
-### Non-Technical Requirements
-
-- Open source CSS template. Using a template is an easy way to get the basic looks for a site set up easily without the need for manual configuration.
-![Bootstrap Template](report_images/ntr1.png)
-- Page Tracker. This element is a great way to show an image with the number of visitors and where they are from.
-![Page Tracker](report_images/ntr2.png)
-
-### Technical Requirements
-
-- Basic JavaScript. I used the elements from Lab 2 as well as a Gif using React. These show the different ways that JavaScript can be included, giving useful insight into how to develop more efficiently.
-- Public web API integreations. The joke and weather APIs show different ways of including information from third-parties into my site. The joke deals with just text, and the weather pulls text and an image that reflects the weather.
-![Basic JavaScript and API Integrations](report_images/tr2.png)
-- Use JavaScript cookies. Cookies help keep track of information about the visitor to the site and are used by almost all sites. In this case, it remembers the last time the user visited.
-![Cookies](report_images/tr3.png)
+📫 Let’s connect! [LinkedIn](www.linkedin.com/in/nathan-grilliot)
