@@ -25,7 +25,7 @@ Threads, Meta’s foray into Twitter-like microblogging, has gotten a lot right.
 
 This shifting landscape has created an opening for new platforms that challenge the status quo. One such project is my personal initiative, DevBits. DevBits aims to create a platform specifically tailored for developers and tech enthusiasts. By integrating federated principles and focusing on collaboration, DevBits will provide a space where users can share knowledge, showcase projects, and connect without the noise and distractions of traditional social media.
 
-### DevBits will prioritize:
+### DevBits will prioritize
 
 - Transparency: Open-source code and governance.
 
@@ -44,5 +44,3 @@ The fall of X has been a cautionary tale. A combination of mismanagement, a lack
 The current state of social media is a turning point. Federation and open-source principles offer a way forward, challenging the traditional dominance of corporate-owned platforms. New projects like DevBits aim to push this evolution even further, proving there’s still room for innovation and creativity in this space.
 
 As users, we have more power than we realize. By supporting platforms that prioritize transparency, community, and user empowerment, we can shape the future of social media into something far better than what we’ve left behind.
-
-
