@@ -65,6 +65,16 @@ import "../styles/global.css";
       }
     </script>
   </head>
+
+<!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K0CFS455W9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-K0CFS455W9');
+  </script>
   <body class="bg-primary dark:bg-dk-primary w-full container mx-auto">
     <Nav client:visible posts={posts} />
     <div class="container mx-auto px-4">
