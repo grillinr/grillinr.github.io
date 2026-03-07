@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
+import { ContentOverviewCard } from "@/components/content/content-overview-card";
+import { MotionSection, MotionStagger, MotionStaggerItem } from "@/components/motion/motion-primitives";
 import { Hero } from "@/components/sections/hero";
-import { PostListItem } from "@/components/blog/post-list-item";
 import { SectionHeader } from "@/components/sections/section-header";
 import { SkillsGrid } from "@/components/sections/skills-grid";
 import { Button } from "@/components/ui/button";
-import { ProjectCard } from "@/components/projects/project-card";
 import { getPosts, getProjectPosts } from "@/lib/content";
 
 export function HomePage() {
@@ -17,42 +17,54 @@ export function HomePage() {
     <>
       <Hero />
 
-      <section className="page-section">
+      <MotionSection className="page-section">
         <SectionHeader
           title="Featured projects"
           description="Some of my best work, showcasing a range of technical challenges and solutions across different domains."
         />
-        <div className="grid gap-4 md:grid-cols-2">
+        <MotionStagger className="grid gap-4 md:grid-cols-2">
           {featured.map((project) => (
-            <ProjectCard key={project.slug} project={project} />
+            <MotionStaggerItem key={project.slug}>
+              <ContentOverviewCard
+                entry={project}
+                href={`/projects/${project.slug}`}
+                ctaLabel="Read project post"
+              />
+            </MotionStaggerItem>
           ))}
-        </div>
+        </MotionStagger>
         <div className="mt-6">
           <Button variant="outline" asChild>
             <Link to="/projects">View all projects</Link>
           </Button>
         </div>
-      </section>
+      </MotionSection>
 
-      <section className="page-section">
+      <MotionSection className="page-section">
         <SectionHeader
           title="Experience"
           description="Everything I've learned at school, work, and on my own."
         />
         <SkillsGrid />
-      </section>
+      </MotionSection>
 
-      <section className="page-section">
+      <MotionSection className="page-section">
         <SectionHeader
           title="Recent posts"
           description="Random thoughts, technical deep-dives, and lessons learned."
         />
-        <div className="grid gap-4 md:grid-cols-2">
+        <MotionStagger className="grid gap-4 md:grid-cols-2">
           {latestPosts.map((entry) => (
-            <PostListItem key={entry.slug} entry={entry} />
+            <MotionStaggerItem key={entry.slug}>
+              <ContentOverviewCard
+                entry={entry}
+                href={`/posts/${entry.slug}`}
+                ctaLabel="Read post"
+              />
+            </MotionStaggerItem>
           ))}
-        </div>
-      </section>
+        </MotionStagger>
+      </MotionSection>
     </>
   );
 }

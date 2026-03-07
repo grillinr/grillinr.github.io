@@ -37,12 +37,34 @@
   --grain-dot: #ebdbb23d;
   --kicker-border: #fabd2f66;
   --surface-tint: #3c383673;
+  --surface-hover: #50494585;
+  --surface-glow: #8ec07c24;
+  --surface-glow-warm: #fabd2f21;
   --nav-border: #665c5480;
   --nav-bg: #1d2021d1;
+  --nav-link-hover: #ebdbb212;
+  --nav-link-active: #fabd2f24;
   --code-fg: var(--gruvbox-light0);
   --code-bg: #504945e6;
   --pre-bg: #1d2021f2;
+  --syntax-fg: var(--gruvbox-light1);
+  --syntax-muted: var(--gruvbox-light4);
+  --syntax-keyword: var(--gruvbox-bright-red);
+  --syntax-string: var(--gruvbox-bright-green);
+  --syntax-number: var(--gruvbox-bright-purple);
+  --syntax-type: var(--gruvbox-bright-yellow);
+  --syntax-function: var(--gruvbox-bright-aqua);
+  --syntax-variable: var(--gruvbox-light1);
+  --syntax-operator: var(--gruvbox-bright-orange);
   --blockquote-border: #fabd2f99;
+  --focus-ring: #83a59899;
+  --shadow-soft: #00000026;
+  --shadow-lift: #00000040;
+
+  --motion-fast: 280ms;
+  --motion-base: 520ms;
+  --motion-slow: 760ms;
+  --motion-ease: cubic-bezier(0.16, 1, 0.3, 1);
 
   --gruvbox-dark0-hard: #1d2021;
   --gruvbox-dark0: #282828;
@@ -171,6 +193,10 @@ a {
   letter-spacing: 0.04em;
   font-size: 0.78rem;
   text-transform: uppercase;
+  transition:
+    border-color var(--motion-fast) var(--motion-ease),
+    color var(--motion-fast) var(--motion-ease),
+    background-color var(--motion-fast) var(--motion-ease);
 }
 
 .lead {
@@ -181,10 +207,45 @@ a {
 }
 
 .surface {
+  position: relative;
   border: 1px solid var(--border);
   border-radius: 1rem;
   background-color: var(--surface-tint);
   backdrop-filter: blur(1px);
+  box-shadow: 0 10px 22px var(--shadow-soft);
+  overflow: hidden;
+  transition:
+    transform var(--motion-base) var(--motion-ease),
+    border-color var(--motion-fast) var(--motion-ease),
+    background-color var(--motion-base) var(--motion-ease),
+    box-shadow var(--motion-base) var(--motion-ease);
+}
+
+.surface::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: calc(1rem - 1px);
+  pointer-events: none;
+  background:
+    radial-gradient(
+      380px circle at var(--spotlight-x, 50%) var(--spotlight-y, 50%),
+      var(--surface-glow),
+      transparent 45%
+    ),
+    radial-gradient(
+      420px circle at calc(var(--spotlight-x, 50%) + 8%)
+        calc(var(--spotlight-y, 50%) - 10%),
+      var(--surface-glow-warm),
+      transparent 55%
+    );
+  opacity: 0;
+  transition: opacity var(--motion-base) var(--motion-ease);
+}
+
+.surface:hover::before,
+.surface:focus-within::before {
+  opacity: 1;
 }
 
 .site-nav {
@@ -194,6 +255,41 @@ a {
   border-bottom: 1px solid var(--nav-border);
   background-color: var(--nav-bg);
   backdrop-filter: blur(10px);
+}
+
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0.65rem;
+  right: 0.65rem;
+  bottom: 0.3rem;
+  height: 1.5px;
+  transform: scaleX(0);
+  transform-origin: left;
+  background-color: var(--yellow);
+  transition: transform var(--motion-base) var(--motion-ease);
+}
+
+.nav-link:hover::after,
+.nav-link:focus-visible::after,
+.nav-link[aria-current="page"]::after {
+  transform: scaleX(1);
+}
+
+.link-accent {
+  transition:
+    color var(--motion-fast) var(--motion-ease),
+    transform var(--motion-fast) var(--motion-ease);
+}
+
+.link-accent:hover,
+.link-accent:focus-visible {
+  color: var(--yellow);
+  transform: translateX(2px);
 }
 
 .hero-grid {
@@ -220,9 +316,16 @@ a {
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 2px;
+  transition: color var(--motion-fast) var(--motion-ease);
 }
 
-.mdx-content code {
+.mdx-content a:hover,
+.mdx-content a:focus-visible {
+  color: var(--aqua);
+}
+
+.mdx-content :not(pre) > code {
+  font-family: "JetBrains Mono", "SF Mono", "Source Code Pro", monospace;
   padding: 0.1rem 0.35rem;
   border-radius: 0.3rem;
   color: var(--code-fg);
@@ -237,6 +340,67 @@ a {
   border: 1px solid var(--nav-border);
 }
 
+.mdx-content pre code {
+  display: block;
+  font-family: "JetBrains Mono", "SF Mono", "Source Code Pro", monospace;
+  padding: 0;
+  border-radius: 0;
+  color: inherit;
+  background-color: transparent;
+}
+
+.mdx-content pre code.hljs {
+  color: var(--syntax-fg);
+}
+
+.mdx-content pre .hljs-comment,
+.mdx-content pre .hljs-quote {
+  color: var(--syntax-muted);
+  font-style: italic;
+}
+
+.mdx-content pre .hljs-keyword,
+.mdx-content pre .hljs-selector-tag,
+.mdx-content pre .hljs-literal {
+  color: var(--syntax-keyword);
+}
+
+.mdx-content pre .hljs-string,
+.mdx-content pre .hljs-attr,
+.mdx-content pre .hljs-regexp {
+  color: var(--syntax-string);
+}
+
+.mdx-content pre .hljs-number,
+.mdx-content pre .hljs-symbol,
+.mdx-content pre .hljs-bullet {
+  color: var(--syntax-number);
+}
+
+.mdx-content pre .hljs-title,
+.mdx-content pre .hljs-title.class_,
+.mdx-content pre .hljs-type,
+.mdx-content pre .hljs-built_in {
+  color: var(--syntax-type);
+}
+
+.mdx-content pre .hljs-function,
+.mdx-content pre .hljs-title.function_ {
+  color: var(--syntax-function);
+}
+
+.mdx-content pre .hljs-variable,
+.mdx-content pre .hljs-template-variable,
+.mdx-content pre .hljs-params,
+.mdx-content pre .hljs-property {
+  color: var(--syntax-variable);
+}
+
+.mdx-content pre .hljs-operator,
+.mdx-content pre .hljs-punctuation {
+  color: var(--syntax-operator);
+}
+
 .mdx-content blockquote {
   margin: 0;
   padding-left: 1rem;
@@ -245,7 +409,26 @@ a {
 }
 
 .fade-in {
-  animation: fade-in-up 500ms ease-out both;
+  animation: fade-in-up var(--motion-slow) var(--motion-ease) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .surface,
+  .kicker,
+  button,
+  .link-accent,
+  .mdx-content a,
+  .nav-link::after {
+    transition: none;
+  }
+
+  .fade-in {
+    animation: none;
+  }
+
+  .surface::before {
+    display: none;
+  }
 }
 
 @keyframes fade-in-up {

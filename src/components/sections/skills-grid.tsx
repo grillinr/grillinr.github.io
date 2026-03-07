@@ -1,6 +1,7 @@
-import type { IconType } from "react-icons";
-import { DiMsqlServer } from "react-icons/di";
-import { FaRProject, FaAws } from "react-icons/fa";
+import { motion, useReducedMotion } from 'framer-motion'
+import type { IconType } from 'react-icons'
+import { DiMsqlServer } from 'react-icons/di'
+import { FaAws, FaRProject } from 'react-icons/fa'
 import {
   SiAngular,
   SiCplusplus,
@@ -17,19 +18,21 @@ import {
   SiReact,
   SiRust,
   SiTypescript,
-} from "react-icons/si";
-import { TbBrandAzure, TbSql } from "react-icons/tb";
-import { Card } from "@/components/ui/card";
-import { skillGroups } from "@/lib/site-data";
+} from 'react-icons/si'
+import { TbBrandAzure, TbSql } from 'react-icons/tb'
+import { MotionStagger, MotionStaggerItem } from '@/components/motion/motion-primitives'
+import { Card } from '@/components/ui/card'
+import { motionSpring } from '@/lib/motion'
+import { skillGroups } from '@/lib/site-data'
 
 const techIconMap: Record<string, IconType> = {
   Go: SiGo,
   TypeScript: SiTypescript,
   Rust: SiRust,
-  "C#": SiDotnet,
+  'C#': SiDotnet,
   SQL: TbSql,
   Python: SiPython,
-  "C++": SiCplusplus,
+  'C++': SiCplusplus,
   HTML: SiHtml5,
   CSS: SiCss,
   R: FaRProject,
@@ -40,44 +43,51 @@ const techIconMap: Record<string, IconType> = {
   Azure: TbBrandAzure,
   Docker: SiDocker,
   Git: SiGit,
-  "Microsoft SQL Server": DiMsqlServer,
+  'Microsoft SQL Server': DiMsqlServer,
   PostgreSQL: SiPostgresql,
   neo4j: SiNeo4J,
-};
+}
 
 const categoryColorMap: Record<string, string> = {
-  Languages: "text-[var(--purple)]",
-  "Frameworks & Tools": "text-[var(--aqua)]",
-  "Database Management": "text-[var(--orange)]",
-};
+  Languages: 'text-[var(--purple)]',
+  'Frameworks & Tools': 'text-[var(--aqua)]',
+  'Database Management': 'text-[var(--orange)]',
+}
 
 export function SkillsGrid() {
-  return (
-    <div className="grid gap-4 md:grid-cols-3">
-      {skillGroups.map((group) => (
-        <Card key={group.label} className="h-full">
-          <h3 className="m-0 font-['Space_Grotesk','IBM_Plex_Sans',sans-serif] text-lg">
-            {group.label}
-          </h3>
-          <ul className="mb-0 mt-4 flex list-none flex-wrap gap-3 p-0">
-            {group.values.map((value) => {
-              const Icon = techIconMap[value];
-              const categoryColor =
-                categoryColorMap[group.label] ?? "text-[var(--fg-dim)]";
+  const reduceMotion = useReducedMotion()
 
-              return (
-                <li key={value} aria-label={value} title={value}>
-                  {Icon ? (
-                    <Icon
-                      className={`h-6 w-6 md:h-7 md:w-7 ${categoryColor}`}
-                    />
-                  ) : null}
-                </li>
-              );
-            })}
-          </ul>
-        </Card>
+  return (
+    <MotionStagger className="grid gap-4 md:grid-cols-3">
+      {skillGroups.map((group) => (
+        <MotionStaggerItem key={group.label}>
+          <Card className="h-full">
+            <h3 className="m-0 font-['Space_Grotesk','IBM_Plex_Sans',sans-serif] text-lg">{group.label}</h3>
+            <ul className="mb-0 mt-4 flex list-none flex-wrap gap-3 p-0">
+              {group.values.map((value) => {
+                const Icon = techIconMap[value]
+                const categoryColor = categoryColorMap[group.label] ?? 'text-[var(--fg-dim)]'
+
+                return (
+                  <li key={value} aria-label={value} title={value}>
+                    {Icon ? (
+                      <motion.span
+                        className="inline-flex"
+                        whileHover={reduceMotion ? undefined : { y: -5, scale: 1.08, rotate: -3 }}
+                        transition={motionSpring}
+                      >
+                        <Icon
+                          className={`h-6 w-6 transition-colors duration-[var(--motion-fast)] ease-[var(--motion-ease)] hover:text-[var(--yellow)] md:h-7 md:w-7 ${categoryColor}`}
+                        />
+                      </motion.span>
+                    ) : null}
+                  </li>
+                )
+              })}
+            </ul>
+          </Card>
+        </MotionStaggerItem>
       ))}
-    </div>
-  );
+    </MotionStagger>
+  )
 }

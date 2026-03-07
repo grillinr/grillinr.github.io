@@ -1,49 +1,76 @@
 import { ArrowRight, FileText } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { MotionStagger, MotionStaggerItem } from "@/components/motion/motion-primitives";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { motionSpring } from "@/lib/motion";
 import { links, profile } from "@/lib/site-data";
 
 export function Hero() {
+  const reduceMotion = useReducedMotion();
+
   return (
-    <section className="page-section fade-in">
-      <h1 className="page-title">{profile.name}</h1>
-      <p className="mt-4 text-xl text-[var(--gruvbox-bright-blue)] md:text-2xl">
-        {profile.title}
-      </p>
-      <p className="lead mt-5">{profile.shortBio}</p>
+    <MotionStagger className="page-section fade-in">
+      <MotionStaggerItem>
+        <h1 className="page-title">{profile.name}</h1>
+      </MotionStaggerItem>
 
-      <div className="mt-8 flex flex-wrap items-center gap-3">
-        <Button variant="secondary" asChild>
-          <Link to="/projects">
-            Explore projects <ArrowRight className="size-4" />
-          </Link>
-        </Button>
-        <Button variant="secondary" asChild>
-          <a href={links.find((item) => item.label === "Resume")?.href ?? "#"}>
-            Resume <FileText className="size-4" />
-          </a>
-        </Button>
-      </div>
+      <MotionStaggerItem>
+        <p className="mt-4 text-xl text-[var(--gruvbox-bright-blue)] md:text-2xl">
+          {profile.title}
+        </p>
+      </MotionStaggerItem>
 
-      <div className="hero-grid mt-10">
-        <Card className="p-4">
-          <p className="mb-2 text-sm text-[var(--fg-dim)]">Current Focus</p>
-          <p className="m-0 text-sm text-[var(--fg-main)]">
-            Building useful software across full stack web, data systems, and
-            developer tooling.
-          </p>
-        </Card>
-        <Card className="p-4">
-          <p className="mb-2 text-sm text-[var(--fg-dim)]">Open To</p>
-          <div className="flex flex-wrap gap-2">
-            <Badge>Software Engineering</Badge>
-            <Badge>Product Engineering</Badge>
-            <Badge>Data Platforms</Badge>
-          </div>
-        </Card>
-      </div>
-    </section>
+      <MotionStaggerItem>
+        <p className="lead mt-5">{profile.shortBio}</p>
+      </MotionStaggerItem>
+
+      <MotionStaggerItem>
+        <div className="mt-8 flex flex-wrap items-center gap-3">
+          <motion.div
+            whileHover={reduceMotion ? undefined : { y: -4, scale: 1.02 }}
+            transition={motionSpring}
+          >
+            <Button variant="secondary" asChild>
+              <Link to="/projects">
+                Explore projects <ArrowRight className="size-4" />
+              </Link>
+            </Button>
+          </motion.div>
+          <motion.div
+            whileHover={reduceMotion ? undefined : { y: -4, scale: 1.02 }}
+            transition={motionSpring}
+          >
+            <Button variant="secondary" asChild>
+              <a href={links.find((item) => item.label === "Resume")?.href ?? "#"}>
+                Resume <FileText className="size-4" />
+              </a>
+            </Button>
+          </motion.div>
+        </div>
+      </MotionStaggerItem>
+
+      <MotionStaggerItem>
+        <div className="hero-grid mt-10">
+          <Card className="p-4">
+            <p className="mb-2 text-sm text-[var(--fg-dim)]">Current Focus</p>
+            <p className="m-0 text-sm text-[var(--fg-main)]">
+              Building useful software across full stack web, data systems, and
+              developer tooling.
+            </p>
+          </Card>
+          <Card className="p-4">
+            <p className="mb-2 text-sm text-[var(--fg-dim)]">Open To</p>
+            <div className="flex flex-wrap gap-2">
+              <Badge>Software Engineering</Badge>
+              <Badge>Product Engineering</Badge>
+              <Badge>Data Platforms</Badge>
+            </div>
+          </Card>
+        </div>
+      </MotionStaggerItem>
+    </MotionStagger>
   );
 }
