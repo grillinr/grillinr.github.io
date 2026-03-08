@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
-import { fadeUpItem, staggerContainer, viewportOnce } from '@/lib/motion'
+import { fadeUpItem, staggerContainer } from '@/lib/motion'
 
 type MotionProps = {
   children: ReactNode
@@ -19,8 +19,7 @@ export function MotionSection({ children, className }: MotionProps) {
       className={className}
       variants={fadeUpItem}
       initial="hidden"
-      whileInView="show"
-      viewport={viewportOnce}
+      animate="show"
     >
       {children}
     </motion.section>
@@ -39,8 +38,7 @@ export function MotionStagger({ children, className }: MotionProps) {
       className={className}
       variants={staggerContainer}
       initial="hidden"
-      whileInView="show"
-      viewport={viewportOnce}
+      animate="show"
     >
       {children}
     </motion.div>

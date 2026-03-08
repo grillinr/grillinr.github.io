@@ -1,5 +1,5 @@
 import { motion, useReducedMotion } from 'framer-motion'
-import { fadeUpItem, motionDuration, motionEase, staggerContainer, viewportOnce } from '@/lib/motion'
+import { fadeUpItem, motionDuration, motionEase, staggerContainer } from '@/lib/motion'
 
 type SectionHeaderProps = {
   kicker?: string
@@ -25,8 +25,7 @@ export function SectionHeader({ kicker, title, description }: SectionHeaderProps
       className="mb-6 md:mb-8"
       variants={staggerContainer}
       initial="hidden"
-      whileInView="show"
-      viewport={viewportOnce}
+      animate="show"
     >
       {kicker ? (
         <motion.span

@@ -1,16 +1,19 @@
-import { ContentOverviewCard } from '@/components/content/content-overview-card'
-import { MotionSection, MotionStagger, MotionStaggerItem } from '@/components/motion/motion-primitives'
-import { SectionHeader } from '@/components/sections/section-header'
-import { getProjectPosts } from '@/lib/content'
+import { ContentOverviewCard } from "@/components/content/content-overview-card";
+import {
+  MotionSection,
+  MotionStagger,
+  MotionStaggerItem,
+} from "@/components/motion/motion-primitives";
+import { SectionHeader } from "@/components/sections/section-header";
+import { getProjectPosts } from "@/lib/content";
 
 export function ProjectsPage() {
-  const projects = getProjectPosts()
+  const projects = getProjectPosts();
 
   return (
     <MotionSection className="page-section fade-in">
       <SectionHeader
-        kicker="Projects"
-        title="Products, prototypes, and systems"
+        title="Projects"
         description="Each project entry links to a markdown/MDX page so you can publish deep dives and progress notes over time."
       />
 
@@ -26,5 +29,5 @@ export function ProjectsPage() {
         ))}
       </MotionStagger>
     </MotionSection>
-  )
+  );
 }

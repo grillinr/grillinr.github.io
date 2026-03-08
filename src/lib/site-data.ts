@@ -15,9 +15,9 @@ export type Experience = {
 
 export const profile = {
   name: "Nathan Grilliot",
-  title: "Software Engineer & Computer Science at the University of Cincinnati",
+  title: "Software Engineer | Computer Science at the University of Cincinnati",
   shortBio:
-    "Computer Science student at the University of Cincinnati building practical tools across web, data, and systems.",
+    "Computer Science student at the University of Cincinnati (2026) building practical tools across web, data, and systems.",
   longBio:
     "I enjoy building software that makes information easier to understand and use. My focus ranges from product-shaped web applications to data-heavy backend systems and developer tooling.",
 };
@@ -46,7 +46,7 @@ export const skillGroups: SkillGroup[] = [
     ],
   },
   {
-    label: "Frameworks & Tools",
+    label: "Frameworks & tools",
     values: [
       "React",
       "Angular",
@@ -56,10 +56,12 @@ export const skillGroups: SkillGroup[] = [
       "Docker",
       "Power BI",
       "Git",
+      "Linux",
+      "Arch",
     ],
   },
   {
-    label: "Database Management",
+    label: "Database management",
     values: ["SQL", "Microsoft SQL Server", "PostgreSQL", "neo4j"],
   },
 ];

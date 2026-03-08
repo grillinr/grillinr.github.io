@@ -1,8 +1,10 @@
 import { ArrowRight, FileText } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { MotionStagger, MotionStaggerItem } from "@/components/motion/motion-primitives";
-import { Badge } from "@/components/ui/badge";
+import {
+  MotionStagger,
+  MotionStaggerItem,
+} from "@/components/motion/motion-primitives";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { motionSpring } from "@/lib/motion";
@@ -44,7 +46,11 @@ export function Hero() {
             transition={motionSpring}
           >
             <Button variant="secondary" asChild>
-              <a href={links.find((item) => item.label === "Resume")?.href ?? "#"}>
+              <a
+                href={
+                  links.find((item) => item.label === "Resume")?.href ?? "#"
+                }
+              >
                 Resume <FileText className="size-4" />
               </a>
             </Button>
@@ -55,19 +61,19 @@ export function Hero() {
       <MotionStaggerItem>
         <div className="hero-grid mt-10">
           <Card className="p-4">
-            <p className="mb-2 text-sm text-[var(--fg-dim)]">Current Focus</p>
+            <p className="mb-2 text-sm text-[var(--fg-dim)]">Current focus</p>
             <p className="m-0 text-sm text-[var(--fg-main)]">
-              Building useful software across full stack web, data systems, and
-              developer tooling.
+              Software engineer at Medpace building out our design system.
+              Working on{" "}
+              <Link to="/projects/nq" className="link-accent">
+                NQ
+              </Link>{" "}
+              and{" "}
+              <Link to="/projects/devbits" className="link-accent">
+                DevBits
+              </Link>{" "}
+              in my free time.
             </p>
-          </Card>
-          <Card className="p-4">
-            <p className="mb-2 text-sm text-[var(--fg-dim)]">Open To</p>
-            <div className="flex flex-wrap gap-2">
-              <Badge>Software Engineering</Badge>
-              <Badge>Product Engineering</Badge>
-              <Badge>Data Platforms</Badge>
-            </div>
           </Card>
         </div>
       </MotionStaggerItem>
