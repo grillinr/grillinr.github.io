@@ -112,6 +112,10 @@ html,
 body,
 #root {
   min-height: 100%;
+  font-family: "Exo 2", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 body {
@@ -119,7 +123,6 @@ body {
   min-width: 320px;
   color: var(--foreground);
   background-color: var(--bg-hard);
-  font-family: "IBM Plex Sans", "Source Sans 3", "Segoe UI", sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -176,7 +179,6 @@ a {
 
 .page-title {
   margin: 0;
-  font-family: "Space Grotesk", "IBM Plex Sans", sans-serif;
   font-size: clamp(2.1rem, 5vw, 3.3rem);
   line-height: 1.1;
 }
@@ -351,7 +353,6 @@ a {
 .mdx-content h1,
 .mdx-content h2,
 .mdx-content h3 {
-  font-family: "Space Grotesk", "IBM Plex Sans", sans-serif;
   line-height: 1.2;
 }
 

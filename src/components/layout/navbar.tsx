@@ -12,7 +12,7 @@ export function Navbar() {
   const reduceMotion = useReducedMotion()
 
   return (
-    <header className="site-nav">
+    <header className="site-nav relative">
       <div className="container flex h-16 items-center justify-between gap-6">
         <Link to="/" className="font-['Space_Grotesk','IBM_Plex_Sans',sans-serif] text-lg font-semibold">
           {profile.name}
@@ -25,7 +25,7 @@ export function Navbar() {
               to={item.to}
               className={({ isActive }) =>
                 cn(
-                  'nav-link rounded-md px-3 py-2 text-sm text-[var(--fg-dim)] transition-colors hover:bg-[var(--nav-link-hover)] hover:text-[var(--fg-main)]',
+                  'nav-link inline-flex rounded-md px-3 py-2 text-sm text-[var(--fg-dim)] transition-colors hover:bg-[var(--nav-link-hover)] hover:text-[var(--fg-main)]',
                   isActive && 'bg-[var(--nav-link-active)] text-[var(--yellow)]',
                 )
               }
@@ -48,13 +48,18 @@ export function Navbar() {
       <AnimatePresence initial={false}>
         {isOpen && (
           <motion.nav
-            className="container overflow-hidden pb-4 md:hidden"
-            initial={reduceMotion ? false : { opacity: 0, height: 0 }}
-            animate={reduceMotion ? {} : { opacity: 1, height: 'auto' }}
-            exit={reduceMotion ? {} : { opacity: 0, height: 0 }}
+            className="absolute inset-x-0 top-full border-b border-[var(--nav-border)] bg-[var(--nav-bg)] backdrop-blur-md md:hidden"
+            initial={reduceMotion ? false : { opacity: 0, y: -8 }}
+            animate={reduceMotion ? {} : { opacity: 1, y: 0 }}
+            exit={reduceMotion ? {} : { opacity: 0, y: -8 }}
             transition={{ duration: motionDuration.slow, ease: motionEase }}
           >
-            <motion.div className="flex flex-col gap-1" variants={staggerContainer} initial="hidden" animate="show">
+            <motion.div
+              className="container flex flex-col items-start gap-1 py-3"
+              variants={staggerContainer}
+              initial="hidden"
+              animate="show"
+            >
               {navigation.map((item) => (
                 <motion.div key={item.to} variants={fadeUpItem}>
                   <NavLink
@@ -62,7 +67,7 @@ export function Navbar() {
                     onClick={() => setIsOpen(false)}
                     className={({ isActive }) =>
                       cn(
-                        'nav-link rounded-md px-3 py-2 text-sm text-[var(--fg-dim)] transition-colors hover:bg-[var(--nav-link-hover)] hover:text-[var(--fg-main)]',
+                        'nav-link inline-flex rounded-md px-3 py-2 text-sm text-[var(--fg-dim)] transition-colors hover:bg-[var(--nav-link-hover)] hover:text-[var(--fg-main)]',
                         isActive && 'bg-[var(--nav-link-active)] text-[var(--yellow)]',
                       )
                     }
