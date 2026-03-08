@@ -14,7 +14,7 @@ export function ProjectsPage() {
     <MotionSection className="page-section fade-in">
       <SectionHeader
         title="Projects"
-        description="Each project entry links to a markdown/MDX page so you can publish deep dives and progress notes over time."
+        description="Check out what I've been working on."
       />
 
       <MotionStagger className="grid gap-4 md:grid-cols-2">

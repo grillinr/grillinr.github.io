@@ -12,11 +12,23 @@ import { links, profile } from "@/lib/site-data";
 
 export function Hero() {
   const reduceMotion = useReducedMotion();
+  const resumeLink =
+    links.find((item) => item.label === "Resume")?.href ?? "/resume";
 
   return (
     <MotionStagger className="page-section fade-in">
       <MotionStaggerItem>
-        <h1 className="page-title">{profile.name}</h1>
+        <div className="hero-heading">
+          <img
+            className="hero-image"
+            src="/profile.jpg"
+            alt={profile.name}
+            onError={(event) => {
+              event.currentTarget.src = "/profile-placeholder.svg";
+            }}
+          />
+          <h1 className="page-title">{profile.name}</h1>
+        </div>
       </MotionStaggerItem>
 
       <MotionStaggerItem>
@@ -46,13 +58,9 @@ export function Hero() {
             transition={motionSpring}
           >
             <Button variant="secondary" asChild>
-              <a
-                href={
-                  links.find((item) => item.label === "Resume")?.href ?? "#"
-                }
-              >
+              <Link to={resumeLink}>
                 Resume <FileText className="size-4" />
-              </a>
+              </Link>
             </Button>
           </motion.div>
         </div>
@@ -61,7 +69,7 @@ export function Hero() {
       <MotionStaggerItem>
         <div className="hero-grid mt-10">
           <Card className="p-4">
-            <p className="mb-2 text-sm text-[var(--fg-dim)]">Current focus</p>
+            <p className="mb-2 text-sm text-[var(--fg-dim)]">What I'm up to</p>
             <p className="m-0 text-sm text-[var(--fg-main)]">
               Software engineer at Medpace building out our design system.
               Working on{" "}

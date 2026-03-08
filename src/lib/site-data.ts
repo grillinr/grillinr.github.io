@@ -26,7 +26,7 @@ export const links: LinkItem[] = [
   { label: "GitHub", href: "https://github.com/grillinr" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/nathan-grilliot" },
   { label: "Email", href: "mailto:me@nathangrilliot.com" },
-  { label: "Resume", href: "" },
+  { label: "Resume", href: "/resume" },
 ];
 
 export const skillGroups: SkillGroup[] = [
@@ -83,5 +83,6 @@ export const navigation = [
   { label: "Home", to: "/" },
   { label: "About", to: "/about" },
   { label: "Projects", to: "/projects" },
+  { label: "Resume", to: "/resume" },
   { label: "Posts", to: "/posts" },
 ];

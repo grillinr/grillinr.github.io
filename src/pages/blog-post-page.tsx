@@ -1,4 +1,5 @@
-import { Navigate, useParams } from 'react-router-dom'
+import { ArrowLeft } from 'lucide-react'
+import { Link, Navigate, useParams } from 'react-router-dom'
 import { MotionSection } from '@/components/motion/motion-primitives'
 import { Badge } from '@/components/ui/badge'
 import { getPostBySlug } from '@/lib/content'
@@ -17,6 +18,13 @@ export function BlogPostPage() {
   return (
     <MotionSection className="page-section fade-in">
       <header className="mb-8">
+        <Link
+          to="/posts"
+          className="link-accent inline-flex items-center gap-2 text-sm text-[var(--aqua)]"
+        >
+          <ArrowLeft className="size-4" />
+          Back to posts
+        </Link>
         <p className="m-0 text-xs uppercase tracking-wide text-[var(--fg-dim)]">{formatDate(post.date)}</p>
         <h1 className="page-title mt-3">{post.title}</h1>
         <p className="lead mt-4">{post.summary}</p>

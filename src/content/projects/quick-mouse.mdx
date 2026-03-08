@@ -1,25 +1,60 @@
 ---
 title: Quick Mouse
-date: 2024-10-18
-summary: Turning a smartphone into a cross-platform wireless mouse using motion input.
+date: 2025-11-9
+summary: A wireless mouse solution that turns your smartphone into a fully-functional input device for your computer.
 tags:
   - Mobile
-  - Input Systems
+  - Input systems
   - Networking
 type: project
 featured: true
 draft: false
 ---
 
-Quick Mouse explores low-latency input streaming from phone sensors to desktop cursor control.
+## Overview
 
-## Challenges
+Quick Mouse turns your phone into a precise wireless mouse. No extra hardware. Open the app, connect, and control your desktop with smooth, low-latency gestures. Designed by two University of Cincinnati computer science students and winning first place in the [2025 MakeUC Hackathon](https://devpost.com/software/quick-mouse), Quick Mouse leverages modern web technologies and native system integration to deliver a seamless experience. By leveraging web sockets and your phone's built-in sensors, Quick Mouse provides a responsive and intuitive way to interact with your computer from a distance.
 
-- Noise smoothing for gyroscope input.
-- Consistent feel across Windows, macOS, and Linux.
-- Clear pairing flow between devices.
+## Video
 
-## Future improvements
+[Link](https://www.youtube.com/watch?v=Cr0FrOouxdk)
 
-- Gesture macros.
-- Adaptive sensitivity based on movement patterns.
+## Features
+
+- **Multiple Input Modes**: Handheld pointer, or trackpad
+- **QR Code Pairing**: Instant secure connection with no manual configuration
+- **Low Latency**: Optimized for real-time control even on shared WiFi networks
+- **Cross-Platform**: Works on Windows, macOS, and Linux
+- **No Extra Hardware**: Uses devices you already have
+
+## Installation
+
+Run the relevant install command depending on the OS of the system you are controlling.
+
+### Linux and MacOS
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/DerekCorniello/quick-mouse/main/setup.sh | bash
+```
+
+### Windows (Must be run in PowerShell)
+
+```bash
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/DerekCorniello/quick-mouse/main/setup.bat" -OutFile "$env:TEMP\setup.bat"; & cmd.exe /c "$env:TEMP\setup.bat"
+```
+
+## Getting Started
+
+1. **Start the App**: Launch Quick Mouse on your computer by running `quick-mouse` in your terminal or starting the application
+2. **Scan QR Code**: Open Quick Mouse on your phone and scan the displayed QR code
+3. **Accept Permissions**: Quick Mouse will request necessary permissions for pointer control (gyroscope sensor information)
+4. **Perform Calibration**: Follow the on-screen instructions to calibrate your device for optimal performance.
+5. Start using your phone as a mouse! You can use your phone as a pointer or use the built-in trackpad mode.
+6. **Make Adjustments**: Access settings to customize sensitivity, gestures, and other preferences.
+
+## Technical Stack
+
+- **Backend**: Go - lightweight service for pairing, event processing, and native pointer control
+- **Frontend**: React - intuitive touch and gesture interface
+- **Communication**: WebSocket-based event streaming for minimal latency
+- **Security**: Encrypted pairing through QR-code exchange

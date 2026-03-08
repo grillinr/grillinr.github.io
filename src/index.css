@@ -181,6 +181,33 @@ a {
   line-height: 1.1;
 }
 
+.hero-heading {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.8rem, 2vw, 1.3rem);
+}
+
+.hero-image {
+  display: block;
+  width: clamp(72px, 10vw, 108px);
+  aspect-ratio: 1;
+  flex-shrink: 0;
+  border: 1px solid var(--gruvbox-dark4);
+  border-radius: 999px;
+  background-color: var(--surface-tint);
+  object-fit: cover;
+}
+
+@media (max-width: 640px) {
+  .hero-heading {
+    align-items: flex-start;
+  }
+
+  .hero-image {
+    width: 68px;
+  }
+}
+
 .kicker {
   display: inline-flex;
   align-items: center;
@@ -292,6 +319,19 @@ a {
   transform: translateX(2px);
 }
 
+.link-primary {
+  color: var(--gruvbox-bright-blue);
+  transition:
+    color var(--motion-fast) var(--motion-ease),
+    transform var(--motion-fast) var(--motion-ease);
+}
+
+.link-primary:hover,
+.link-primary:focus-visible {
+  color: var(--gruvbox-faded-blue);
+  transform: translateX(2px);
+}
+
 .hero-grid {
   display: grid;
   gap: 1rem;
@@ -299,9 +339,13 @@ a {
 }
 
 .mdx-content {
-  max-width: 70ch;
+  max-width: 100ch;
   line-height: 1.8;
   color: var(--fg-main);
+}
+
+.mdx-content > * + * {
+  margin-top: 1rem;
 }
 
 .mdx-content h1,
@@ -309,6 +353,54 @@ a {
 .mdx-content h3 {
   font-family: "Space Grotesk", "IBM Plex Sans", sans-serif;
   line-height: 1.2;
+}
+
+.mdx-content h1 {
+  margin-top: 2rem;
+  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+}
+
+.mdx-content h2 {
+  margin-top: 1.8rem;
+  font-size: clamp(1.45rem, 2.7vw, 1.9rem);
+}
+
+.mdx-content h3 {
+  margin-top: 1.5rem;
+  font-size: clamp(1.2rem, 2.1vw, 1.45rem);
+}
+
+.mdx-content p {
+  margin: 0;
+  color: var(--fg-main);
+}
+
+.mdx-content ul,
+.mdx-content ol {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.mdx-content ul {
+  list-style: disc;
+}
+
+.mdx-content ol {
+  list-style: decimal;
+}
+
+.mdx-content li + li {
+  margin-top: 0.35rem;
+}
+
+.mdx-content strong {
+  color: var(--gruvbox-light0);
+}
+
+.mdx-content hr {
+  border: 0;
+  border-top: 1px solid var(--nav-border);
+  margin-top: 1.8rem;
 }
 
 .mdx-content a {
