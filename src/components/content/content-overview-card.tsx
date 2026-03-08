@@ -23,7 +23,7 @@ export function ContentOverviewCard({
   const reduceMotion = useReducedMotion();
 
   return (
-    <Card className={cn("group", className)}>
+    <Card className={cn("group flex h-full flex-col", className)}>
       <p className="m-0 text-xs uppercase tracking-wide text-[var(--fg-dim)]">
         {formatDate(entry.date)}
       </p>
@@ -38,7 +38,7 @@ export function ContentOverviewCard({
       </div>
       <Link
         to={href}
-        className="link-accent mt-5 inline-flex items-center gap-1 text-sm text-[var(--aqua)]"
+        className="link-accent mt-auto inline-flex items-center gap-1 pt-5 text-sm text-[var(--aqua)]"
       >
         {ctaLabel}
         <motion.span

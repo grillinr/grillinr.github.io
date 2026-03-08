@@ -67,7 +67,7 @@ export function SkillsGrid() {
     <MotionStagger className="grid gap-4 md:grid-cols-3">
       {skillGroups.map((group) => (
         <MotionStaggerItem key={group.label}>
-          <Card className="h-full">
+          <Card className="skill-card relative z-0 h-full hover:z-30 focus-within:z-30">
             <h3 className="m-0 font-['Space_Grotesk','IBM_Plex_Sans',sans-serif] text-lg">
               {group.label}
             </h3>
@@ -78,7 +78,12 @@ export function SkillsGrid() {
                   categoryColorMap[group.label] ?? "text-[var(--fg-dim)]";
 
                 return (
-                  <li key={value} aria-label={value} title={value}>
+                  <li
+                    key={value}
+                    aria-label={value}
+                    className="skill-tooltip"
+                    data-tooltip={value}
+                  >
                     {Icon ? (
                       <motion.span
                         className="inline-flex"
