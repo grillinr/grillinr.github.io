@@ -48,30 +48,32 @@ export function Navbar() {
       <AnimatePresence initial={false}>
         {isOpen && (
           <motion.nav
-            className="container overflow-hidden pb-4 md:hidden"
+            className="absolute inset-x-0 top-full overflow-hidden border-b border-[var(--nav-border)] bg-[var(--nav-bg)] [backdrop-filter:blur(10px)] md:hidden"
             initial={reduceMotion ? false : { opacity: 0, height: 0 }}
             animate={reduceMotion ? {} : { opacity: 1, height: 'auto' }}
             exit={reduceMotion ? {} : { opacity: 0, height: 0 }}
             transition={{ duration: motionDuration.slow, ease: motionEase }}
           >
-            <motion.div className="flex flex-col gap-1" variants={staggerContainer} initial="hidden" animate="show">
-              {navigation.map((item) => (
-                <motion.div key={item.to} variants={fadeUpItem}>
-                  <NavLink
-                    to={item.to}
-                    onClick={() => setIsOpen(false)}
-                    className={({ isActive }) =>
-                      cn(
-                        'nav-link rounded-md px-3 py-2 text-sm text-[var(--fg-dim)] transition-colors hover:bg-[var(--nav-link-hover)] hover:text-[var(--fg-main)]',
-                        isActive && 'bg-[var(--nav-link-active)] text-[var(--yellow)]',
-                      )
-                    }
-                  >
-                    {item.label}
-                  </NavLink>
-                </motion.div>
-              ))}
-            </motion.div>
+            <div className="container pb-4">
+              <motion.div className="flex flex-col gap-1" variants={staggerContainer} initial="hidden" animate="show">
+                {navigation.map((item) => (
+                  <motion.div key={item.to} variants={fadeUpItem}>
+                    <NavLink
+                      to={item.to}
+                      onClick={() => setIsOpen(false)}
+                      className={({ isActive }) =>
+                        cn(
+                          'nav-link rounded-md px-3 py-2 text-sm text-[var(--fg-dim)] transition-colors hover:bg-[var(--nav-link-hover)] hover:text-[var(--fg-main)]',
+                          isActive && 'bg-[var(--nav-link-active)] text-[var(--yellow)]',
+                        )
+                      }
+                    >
+                      {item.label}
+                    </NavLink>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </div>
           </motion.nav>
         )}
       </AnimatePresence>
