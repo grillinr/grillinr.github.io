@@ -83,6 +83,7 @@ export const navigation = [
   { label: "Home", to: "/" },
   { label: "About", to: "/about" },
   { label: "Projects", to: "/projects" },
-  { label: "Resume", to: "/resume" },
   { label: "Posts", to: "/posts" },
+  { label: "Contact", to: "/contact" },
+  { label: "Resume", to: "/resume" },
 ];

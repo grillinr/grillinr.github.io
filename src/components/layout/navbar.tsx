@@ -14,7 +14,10 @@ export function Navbar() {
   return (
     <header className="site-nav relative">
       <div className="container flex h-16 items-center justify-between gap-6">
-        <Link to="/" className="font-['Space_Grotesk','IBM_Plex_Sans',sans-serif] text-lg font-semibold">
+        <Link
+          to="/"
+          className="nav-brand font-['Space_Grotesk','IBM_Plex_Sans',sans-serif] text-lg font-semibold"
+        >
           {profile.name}
         </Link>
 
